@@ -1,7 +1,17 @@
 <div class="displayBox">
     <h3>Possible Experiments</h3>
     <ul>
-      <li *ngFor="let experiment of experiments">{{experiment}}</li>
+      <li *ngFor="let experiment of experiments">
+        <button (click)="addExperiment(experiment)" [disabled]="selectedExperiments.length === maxExperiments || selectedExperiments.includes(experiment)">Load Experiment</button>
+        {{experiment}}</li>
     </ul>
 </div>
 <hr>
+
+<div class = "displayBox">
+    <h3>Experiments On Board: {{selectedExperiments.length}}/{{maxExperiments}} Spots Filled</h3>
+    <ol>
+        <li (click)="removeItem(experiment)" *ngFor="let experiment of selectedExperiments">{{experiment}}</li>
+    </ol>
+    <button (click)="emptyExperiments()" [disabled]="selectedExperiments.length === 0">Clear All Experiments</button>
+</div>

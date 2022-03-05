@@ -3,10 +3,21 @@ li:hover {
 }
 
 .displayBox {
+    display: flex;
+    flex-direction: column;
     height: 275px;
     width: auto;
+    background: linear-gradient(blue,skyblue,gray,green,darkgreen);
+    padding: 10px;
+    border: 2px solid gold;
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px purple, -1px -1px 10px purple;
+    align-items: center;
+    overflow: scroll;
 }
-
+.displayBox::-webkit-scrollbar{
+    display: none;
+}
 img {
     width: auto;
     height: 100px;
@@ -17,8 +28,21 @@ img {
 
 h3 {
     text-align: center;
+    margin: 5px;
 }
 .selected{
-    color: green;
+    color: gold;
     font-weight: 900;
+}
+hr{
+    border-color: gold;
+    box-shadow: 1px 1px 10px red, -1px -1px 10px red;
+}
+button {
+    margin: 2px;
+    cursor: pointer;
+    background-color: gold;
+}
+button:disabled{
+    background-color: unset;
 }

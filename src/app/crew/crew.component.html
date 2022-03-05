@@ -8,7 +8,15 @@
 <div class="displayBox">
     <h3>Crew <span *ngIf="crew.length===3">Full</span></h3>
     <ol>
-        <li *ngFor="let astronaut of crew" (mouseover)="hovered=astronaut" (mouseout)="hovered={}">{{astronaut.name}}</li>
+        <li *ngFor="let astronaut of crew" (click)="addCrewMember(astronaut)" (mouseover)="hovered=astronaut" (mouseout)="hovered={}">{{astronaut.name}}</li>
     </ol>
-    <img *ngIf="hovered.name" src={{hovered.photo}}>
+    <button (click)="crew = []" [disabled]="crew.length === 0">Reset Crew List</button>
+    <div *ngIf="hovered.name">
+        <img src={{hovered.photo}}>
+        <p>Hours in Space: {{hovered.hoursInSpace}}</p>
+        <ul>Skills:
+            <li *ngFor="let skill of hovered.skills">{{skill}}</li>
+        </ul>
+    </div>
+    
 </div>

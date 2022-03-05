@@ -27,8 +27,11 @@ export class EquipmentComponent implements OnInit {
    ngOnInit() { }
 
    addItem(item){
-    this.cargoHold.push(item);
-    this.cargoMass += item.mass;
+    
+    if(!this.itemCapacity(item)){
+      this.cargoHold.push(item);
+      this.cargoMass += item.mass;
+    }
     if(this.maximumAllowedMass-this.cargoMass < 200){
       return true;
     }
@@ -38,5 +41,16 @@ export class EquipmentComponent implements OnInit {
      this.cargoHold = [];
      this.cargoMass = 0;
    }
-   
+   itemCapacity(item){
+    console.log(this.cargoHold.indexOf(item),this.cargoHold.lastIndexOf(item))
+    let firstIndex = this.cargoHold.indexOf(item);
+    let lastIndex = this.cargoHold.lastIndexOf(item);
+    if(firstIndex === lastIndex){
+      return false;
+    }
+    return true;
+   }
+   removeItem(item){
+     this.cargoHold.splice(this.cargoHold.indexOf(item),1);
+   }
 }

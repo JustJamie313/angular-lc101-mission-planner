@@ -1,8 +1,16 @@
 .displayBox {
     height: 275px;
     width: auto;
+    background: linear-gradient(blue,skyblue,gray,green,darkgreen);
+    padding: 10px;
+    border: 2px solid gold;
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px purple, -1px -1px 10px purple;
+    overflow: scroll;
 }
-
+.displayBox::-webkit-scrollbar{
+    display: none;
+}
 button {
     margin: 2px;
     cursor: pointer;
@@ -13,10 +21,19 @@ button:disabled{
 }
 h3 {
     text-align: center;
+    margin: 5px;
 }
 
-/* Add an 'active' class to style the background of the 'Add to Cargo Hold' buttons. */
-
+hr{
+    border-color: gold;
+    box-shadow: 1px 1px 10px red, -1px -1px 10px red;
+}
+ol{
+    margin: 0;
+}
+p{
+    margin: 5px;
+}
 
 .nearMaxMass{
     color: red;
